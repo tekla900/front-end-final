@@ -200,6 +200,7 @@ function myFunction() {
 
 function myBooking(id) {
     document.getElementById(id).style.backgroundColor = 'red';
+    document.getElementById(id).style.color = 'blue';
     console.log('at least აქამდე მაინც მუშაობს');
     // console.log(name);
 }
