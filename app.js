@@ -179,53 +179,23 @@ function myFunction() {
             }
         ],
     }];
-    // var time = 
-    // // var x = document.getElementById("mySelect").value;
-    // document.getElementById("demo").innerHTML = 'ასდფგ';
+
     var day_sel = document.getElementById("days");
     var day = day_sel.options[day_sel.selectedIndex].value;
-    // alert(day)
     var hour_sel = document.getElementById("hours");
     var hour = hour_sel.options[hour_sel.selectedIndex].text;
-    // document.getElementById("demo").innerHTML = hour + day;
-    // let html = '';
+
     let days_arr = [];
-    // let hours_arr = [];
-    // for (let each in data) {
-    //     if(data[0][each]) {
-    //         days_arr.push(data[each]);
-    //     }
-    // }
-    // for (let each in data) {
-    //     if (data[0][each])
-    // }
+
     const days = (Object.keys(data[0]));
-    // console.log(days);
     for (let each in days) {
         if(days[each] === day) {
             days_arr.push(days[each]);
         }
     }
-    // let list = document.getElementById("myList");
-    let flex = document.getElementById("flex"); 
+    // let flex = document.getElementById("flex"); 
     let infoForThatDay = data[0][days_arr[0]];
-    let hours_arr = [];
     let html = '';
-
-    // infoForThatDay.forEach(each => {
-    //     if(infoForThatDay[each]['start'] == hour.substring(0, 2)) {
-    //         let htmlRender = `
-    //             <div class='flex-boxes'>
-    //             <h1>${infoForThatDay[each]['title']}</h1>
-    //             <button>დაჯავშნე ახლა</button>
-    //             </div>
-    //         `;
-    //         html += htmlRender;
-    //     }
-    // });
-    // let wrapper = document.querySelector('.users');
-    // wrapper.innerHTML = html;
-    // onclick="myFunction()
     let index=1;
     for(let each in infoForThatDay) {
         if(infoForThatDay[each]['start'] == hour.substring(0, 2)) {
@@ -235,44 +205,15 @@ function myFunction() {
                  <button onclick="myBooking("${infoForThatDay[each]['title']}")">დაჯავშნე ახლა</button>
                  </div>
              `;
-            //  document.ge.style.background = `url("${infoForThatDay[each]['cover']}")`;
              html += htmlRender;
         }
     };
     let wrapper = document.querySelector('.users');
     wrapper.innerHTML = html;
 
-    // for(let each in infoForThatDay) {
-    //     if (infoForThatDay[each]['start'] == hour.substring(0, 2)) {
-    //         hours_arr.push(infoForThatDay[each]['title']);
-    //         let div = document.createElement("div");
-    //         // let aTag = document.createElement('a');
-    //         // aTag.setAttribute('href',"youtube.com");
-    //         // aTag.innerText = "link text";
-    //         // div.classList.add("flex-boxes");
-    //         // div.innerText = infoForThatDay[each]['title'];
-    //         // div.style.background = `url("${infoForThatDay[each]['cover']}")`;
-    //         // // div.style.backgroundColor = "url(infoForThatDay[each]['cover'])";
-    //         // flex.appendChild(div.appendChild(aTag));
-    //         // document.getElementById('par').innerText = '';
-    //         // let li = document.createElement("li");
-    //         // li.innerText = infoForThatDay[each]['title'] + infoForThatDay[each]['id'];
-    //         // list.appendChild(li);
-    //     } else {
-    //         document.getElementById('par').innerText = 'მითითებულ დროზე ვერ მოიძებნა სეანსი';
-    //         document.getElementById('flex').innerHTML = '';
-    //     }
-    // }
-    // document.body.style.backgroundImage = "url(https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg)";
-    // let flex = document.getElementById("flex");
-    console.log(typeof infoForThatDay);
-    console.log(infoForThatDay) //ამ დღეს ამ საათზე რაც გადის, მაგის სახელები
-    // console.log( hour.substring(0, 2)); //12
 }
 
 function myBooking(name) {
     console.log('at least აქამდე მაინც მუშაობს');
     console.log(name);
-    // console.log(e.);
-    // document.getElementById('1').style.backgroundColor = 'red';
 }
