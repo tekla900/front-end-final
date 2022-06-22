@@ -198,10 +198,6 @@ function myFunction() {
                  </div>
              `;
              html += htmlRender;
-            //  stateObject[id] = 'false';
-            //  console.log(stateObject + 'aba es vnaxot');
-            //  localStorage.setItem("reserved".concat(`${id}`), "false");
-            //  console.log(localStorage.getItem("reserved") + 'ეს');
         }
     };
     let wrapper = document.querySelector('.users');
@@ -209,6 +205,10 @@ function myFunction() {
 
 }
 
+//When you press the booking button, 
+//i want stateObject to update the corresponding id to true(booked) 
+//and store the object in local storage, so when i refresh the page, 
+//the booked movies, will stay booked 
 function myBooking(id) {
     let stateObject = {
         1: 'false',
@@ -234,19 +234,20 @@ function myBooking(id) {
         21: 'false'
     };
 
+    //the styling is just random way to test if thing work
     document.getElementById(id).style.backgroundColor = 'red';
     document.getElementById(id).style.color = 'blue';
     if (stateObject[id] == 'false') {
         document.getElementById(id).style.color = 'green';
         document.getElementById(`button${id}`).style.visibility = "hidden";
-
+        //so i think that if i stored the stateobject correctly,
+        //then the div i preesed the button on, would stay styled
+        //even after i refresh the page
         stateObject[id] = true;
     }
-    // console.log(stateObject[id] + 'es');
     console.log('at least აქამდე მაინც მუშაობს');
-    //ახლა შევინახოთ ეს ლოკალურ მეხსიერებაში 
     localStorage.setItem("stateObject", JSON.stringify(stateObject));
-    var retrieved = localStorage.getItem('stateObject');
-    console.log(retrieved);
+    // var retrieved = localStorage.getItem('stateObject');
+    // console.log(retrieved);
 }
 
