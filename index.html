@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+    <body>
+        <h1>ბილეთები</h1>
+        <label for="days">აირჩიეთ დღე</label>
+            <select name="days" id="days" >
+                <option value=""></option>
+                <option value="monday">ორშაბათი</option>
+                <option value="tuesday">სამშაბათი</option>
+                <option value="wednesday">ოთხშაბათი</option>
+                <option value="thursday">ხუთშაბათი</option>
+                <option value="friday">პარასკევი</option>
+                <option value="saturday">შაბათი</option>
+                <option value="sunday">კვირა</option>
+            </select>
+
+        <label for="hours">აირჩიეთ დრო</label>
+            <select name="hours" id="hours">
+                <option value=""></option>
+                <option value="monday" class="workdays-only">10:00 - 12:00</option>
+                <option value="tuesday">12:00 - 14:00</option>
+                <option value="wednesday">14:00 - 16:00</option>
+                <option value="thursday">16:00 - 18:00</option>
+                <option value="friday">18:00 - 20:00</option>
+                <option value="saturday" class="weekends-only">20:00 - 22:00</option>           
+            </select>    
+
+            <button type="button" onclick="myFunction()">მაჩვენე სესიები</button>
+
+            <!-- <section id="flex"></section>
+            <p id="par"></p> -->
+            <div class="users">
+
+            </div>
+
+        <script src="./app.js" async defer></script>
+    </body>
+</html>

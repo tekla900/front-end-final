@@ -1,0 +1,32 @@
+* {
+    background-color:aliceblue;
+}
+
+#flex {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 1400px;
+    /* width: 100%; */
+}
+
+#flex > * {
+    color: palevioletred;
+    /* text-align: end; */
+    vertical-align: bottom;
+    font-size: 32px;
+    align-items: end;
+    /* margin: auto; */
+}
+
+.flex-boxes {
+    width: 100%;
+    background-size: contain;
+    height: auto;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
