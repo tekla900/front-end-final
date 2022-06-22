@@ -1,4 +1,5 @@
 function myFunction() {
+    //that the movies data
     const data = [{
         monday: [
             {   
@@ -163,11 +164,13 @@ function myFunction() {
         ],
     }];
 
+    //retrieving user's input of day and hour
     var day_sel = document.getElementById("days");
     var day = day_sel.options[day_sel.selectedIndex].value;
     var hour_sel = document.getElementById("hours");
     var hour = hour_sel.options[hour_sel.selectedIndex].text;
 
+    //then storing the days value in an array
     let days_arr = [];
 
     const days = (Object.keys(data[0]));
@@ -176,21 +179,29 @@ function myFunction() {
             days_arr.push(days[each]);
         }
     }
-    // let flex = document.getElementById("flex"); 
+
+    //i keep info about all the movies that will play on the chosen day
     let infoForThatDay = data[0][days_arr[0]];
     let html = '';
-
+    
+    //then for each movie 
     for(let each in infoForThatDay) {
-        if(infoForThatDay[each]['start'] == hour.substring(0, 2)) {
+        if(infoForThatDay[each]['start'] == hour.substring(0, 2)) { //if the starting hours match
+            //I have a html renderer, that renders div with info about each of the movies
+            //and generates unique id based on the primary data
             let id= infoForThatDay[each]['id'];
-            console.log(id);
+            // console.log(id);
             let htmlRender = `
                  <div class='flex-boxes' id=${id}>
                  <h1>${infoForThatDay[each]['title']}</h1>
-                 <button onclick="myBooking(${id})">დაჯავშნე ახლა</button>
+                 <button id="button${id}" onclick="myBooking(${id})">დაჯავშნე ახლა</button>
                  </div>
              `;
              html += htmlRender;
+            //  stateObject[id] = 'false';
+            //  console.log(stateObject + 'aba es vnaxot');
+            //  localStorage.setItem("reserved".concat(`${id}`), "false");
+            //  console.log(localStorage.getItem("reserved") + 'ეს');
         }
     };
     let wrapper = document.querySelector('.users');
@@ -199,8 +210,43 @@ function myFunction() {
 }
 
 function myBooking(id) {
+    let stateObject = {
+        1: 'false',
+        2: 'false',
+        3: 'false',
+        4: 'false',
+        5: 'false',
+        6: 'false',
+        7: 'false',
+        8: 'false',
+        9: 'false',
+        10: 'false',
+        11: 'false',
+        12: 'false',
+        13: 'false',
+        14: 'false',
+        15: 'false',
+        16: 'false',
+        17: 'false',
+        18: 'false',
+        19: 'false',
+        20: 'false',
+        21: 'false'
+    };
+
     document.getElementById(id).style.backgroundColor = 'red';
     document.getElementById(id).style.color = 'blue';
+    if (stateObject[id] == 'false') {
+        document.getElementById(id).style.color = 'green';
+        document.getElementById(`button${id}`).style.visibility = "hidden";
+
+        stateObject[id] = true;
+    }
+    // console.log(stateObject[id] + 'es');
     console.log('at least აქამდე მაინც მუშაობს');
-    // console.log(name);
+    //ახლა შევინახოთ ეს ლოკალურ მეხსიერებაში 
+    localStorage.setItem("stateObject", JSON.stringify(stateObject));
+    var retrieved = localStorage.getItem('stateObject');
+    console.log(retrieved);
 }
+
