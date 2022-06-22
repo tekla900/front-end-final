@@ -1,20 +1,3 @@
-console.log('hoi');
-// console.log();
-// var select = document.getElementById('days');
-// var x = document.getElementById("days").value;
-// document.getElementById("demo").innerHTML = x;
-
-// console.log(x);
-// console.log(document.getElementById("days").options.value + 'nnk'); // en
-
-// var select = document.getElementById('language');
-// var text = select.options[select.selectedIndex].text;
-// console.log(text); // English
-
-
-// function myNewFunction(sel) {
-//     alert(sel.options[sel.selectedIndex].text);
-//   }
 function myFunction() {
     const data = [{
         monday: [
@@ -196,13 +179,15 @@ function myFunction() {
     // let flex = document.getElementById("flex"); 
     let infoForThatDay = data[0][days_arr[0]];
     let html = '';
-    let index=1;
+
     for(let each in infoForThatDay) {
         if(infoForThatDay[each]['start'] == hour.substring(0, 2)) {
+            let id= infoForThatDay[each]['id'];
+            console.log(id);
             let htmlRender = `
-                 <div class='flex-boxes' style="background-image: url("${infoForThatDay[each]['cover']}")" id=${index+each}>
+                 <div class='flex-boxes' id=${id}>
                  <h1>${infoForThatDay[each]['title']}</h1>
-                 <button onclick="myBooking("${infoForThatDay[each]['title']}")">დაჯავშნე ახლა</button>
+                 <button onclick="myBooking(${id})">დაჯავშნე ახლა</button>
                  </div>
              `;
              html += htmlRender;
@@ -213,7 +198,8 @@ function myFunction() {
 
 }
 
-function myBooking(name) {
+function myBooking(id) {
+    document.getElementById(id).style.backgroundColor = 'red';
     console.log('at least აქამდე მაინც მუშაობს');
-    console.log(name);
+    // console.log(name);
 }
