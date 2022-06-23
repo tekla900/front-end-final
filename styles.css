@@ -26,7 +26,21 @@
     height: auto;
 }
 
-img {
-    max-width: 100%;
+.users > div {
+    /* max-width: 100%; */
     height: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    justify-content: space-between;
+}
+
+.users {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+h1 {
+    /* opacity: 0.1; */
+    background: rgba(51, 170, 51, 0);
 }

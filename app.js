@@ -190,9 +190,10 @@ function myFunction() {
             //I have a html renderer, that renders div with info about each of the movies
             //and generates unique id based on the primary data
             let id= infoForThatDay[each]['id'];
+            let cover = infoForThatDay[each]['cover'];
             // console.log(id);
             let htmlRender = `
-                 <div class='flex-boxes' id=${id}>
+                 <div class='flex-boxes' id=${id} style="background-image: url(${cover})" >
                  <h1>${infoForThatDay[each]['title']}</h1>
                  <button id="button${id}" onclick="myBooking(${id})">დაჯავშნე ახლა</button>
                  </div>
@@ -210,7 +211,12 @@ function myFunction() {
 //and store the object in local storage, so when i refresh the page, 
 //the booked movies, will stay booked 
 function myBooking(id) {
-    let stateObject = {
+    let stateObject;
+  
+    if (localStorage.getItem('stateObject') === 'true') {
+      stateObject = JSON.parse(localStorage.getItem('stateObject'));
+    } else {
+      stateObject = {
         1: 'false',
         2: 'false',
         3: 'false',
@@ -232,22 +238,24 @@ function myBooking(id) {
         19: 'false',
         20: 'false',
         21: 'false'
-    };
-
-    //the styling is just random way to test if thing work
+      };
+    //   stateObject[id] = true;
+    }
+    //the styling is just random way to test if things work
     document.getElementById(id).style.backgroundColor = 'red';
-    document.getElementById(id).style.color = 'blue';
+    // document.getElementById(id).style.color = 'blue';
     if (stateObject[id] == 'false') {
-        document.getElementById(id).style.color = 'green';
-        document.getElementById(`button${id}`).style.visibility = "hidden";
-        //so i think that if i stored the stateobject correctly,
-        //then the div i preesed the button on, would stay styled
-        //even after i refresh the page
-        stateObject[id] = true;
+    //   document.getElementById(id).style.color = 'green';
+      document.getElementById(`button${id}`).style.visibility = "hidden";
+      let par = document.createElement('p').innerText='სესია უკვე დაჯავშნილია';
+      document.getElementById(id).append(par);
+      //so i think that if i stored the stateobject correctly,
+      //then the div i preesed the button on, would stay styled
+      //even after i refresh the page
+      stateObject[id] = true;
     }
     console.log('at least აქამდე მაინც მუშაობს');
     localStorage.setItem("stateObject", JSON.stringify(stateObject));
     // var retrieved = localStorage.getItem('stateObject');
     // console.log(retrieved);
 }
-
